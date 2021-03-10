@@ -19,6 +19,7 @@ import { AuthComponent } from './auth/auth.component';
 import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
@@ -31,7 +32,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     RegisterComponent
   ],
   imports: [
-    HttpClientModule,
+  HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
     MatSliderModule,
@@ -43,6 +44,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatCardModule,
     FormsModule,
     MatDatepickerModule,
+    MatGridListModule,
     MatNativeDateModule
   ],
   providers: [
