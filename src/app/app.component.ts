@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
 import { MatIconRegistry } from '@angular/material/icon';
+import { DomSanitizer } from "@angular/platform-browser";
 
 
 @Component({
@@ -10,7 +10,16 @@ import { MatIconRegistry } from '@angular/material/icon';
 })
 export class AppComponent {
   title = 'EasyBills';
-  constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer) { }
+  constructor(
+    private matIconRegistry: MatIconRegistry,
+    private domSanitizer: DomSanitizer
+  ) {
+    ['github', 'twitter', 'instagram'].forEach((icon) =>
+    this.matIconRegistry.addSvgIcon(
+      icon,
+      this.domSanitizer.bypassSecurityTrustResourceUrl(`../assets/${icon}.svg`)
+    ));
+  }
 
   ngOnInit() {
   }

@@ -7,9 +7,9 @@ import { MatSliderModule } from '@angular/material/slider';
 import { GlobalNavBarComponent } from './global-nav-bar/global-nav-bar.component';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { HttpClientModule } from '@angular/common/http';
 import { GlobalFooterComponent } from './global-footer/global-footer.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { MatInputModule } from '@angular/material/input';
@@ -21,6 +21,7 @@ import { RegisterComponent } from './register/register.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatNativeDateModule } from '@angular/material/core';
+import { PasswordFieldComponent } from './comonents/password-field/password-field.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     GlobalFooterComponent,
     LoginFormComponent,
     AuthComponent,
-    RegisterComponent
+    RegisterComponent,
+    PasswordFieldComponent
   ],
   imports: [
   HttpClientModule,
