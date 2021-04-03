@@ -1,0 +1,14 @@
+<mat-card-title>J'accede a mon <br />espace</mat-card-title>
+<mat-card-content>
+  <mat-form-field>
+    <input matInput placeholder="Email" [(ngModel)]="email">
+  </mat-form-field><br />
+
+  <mat-form-field>
+    <input matInput placeholder="Password" [(ngModel)]="password">
+  </mat-form-field><br />
+  <p><button mat-raised-button (click)="signInClicked()">Login</button></p>
+  <p><button mat-button>Mot de passe oublie</button></p>
+  <p>Vous n'êtes pas encore inscrit?</p>
+  <p><button mat-button (click)="switchPage.emit(false)">Inscrivez-vous</button></p>
+</mat-card-content>

@@ -1,0 +1,25 @@
+@import '../variables';
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+// mat-card {
+//   text-align: center;
+//   width: fit-content;
+//   padding: 3em;
+// }
+
+mat-card-title {
+  color: $primary;
+}
+
+button[mat-raised-button] {
+  background-color: $primary;
+  color: $text;
+}
+
+button[mat-button] {
+  color: $primary;
+}

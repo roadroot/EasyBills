@@ -1,0 +1,72 @@
+// Import material theming functions
+@import '~@angular/material/theming';
+
+// Copy the palettes from your selected theme (usually theme.scss).
+$app-primary: mat-palette($mat-grey);
+$app-accent:  mat-palette($mat-light-blue);
+$app-warn:    mat-palette($mat-pink);
+
+// Create your Sass color vars (will be available in all the project)
+$primary: #3f51b5;
+$text: #cfd1df;
+$accent: mat-color($app-accent);
+$warn: mat-color($app-warn);
+$background: #F8F8F8;
+
+.horizontal-flex-layout {
+  display: flex;
+}
+
+.vertical-flex-layout {
+  display: flex;
+  flex-direction: column;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.horizontal-center {
+  display: flex;
+  justify-content: center;
+}
+
+.vertical-center {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.max-height {
+  height: 100%;
+}
+
+.max-width {
+  width: 100%;
+}
+
+.background-color-default{
+  background-color: $background;
+}
+
+button[mat-raised-button] {
+  margin: 0.4em 0 1.4em 0;
+  background-color: $primary;
+  color: $text;
+}
+
+button[mat-button] {
+  color: $primary;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.fixed-table {
+  table-layout: initial;
+}
+

@@ -1,0 +1,25 @@
+@import '../_variables.scss';
+
+footer {
+  background-color: $primary;
+}
+
+button[mat-raised-button] {
+  margin: 0.4em 0 1.4em 0;
+  background-color: $primary;
+  color: $text;
+}
+
+button[mat-button] {
+  color: $text;
+}
+
+mat-icon {
+  color: $text;
+}
+
+.test {
+  display: block;
+  margin: auto 0;
+  background-color: red;
+}

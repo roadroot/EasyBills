@@ -1,0 +1,11 @@
+@import '../variables';
+
+mat-form-field {
+  @extend .max-width;
+  margin: 0 0.5em;
+}
+
+mat-card-title {
+  color: $primary;
+}
+

@@ -1,0 +1,52 @@
+<mat-card-title>Je m'inscris pour la<br>premiere fois</mat-card-title>
+<mat-card-content>
+  <table class="fixed-table">
+      <tr>
+        <td>
+          <mat-form-field>
+            <input matInput placeholder="Nom">
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field>
+            <input matInput placeholder="Prenom">
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td colSpan="2">
+          <mat-form-field>
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td colSpan="2">
+          <mat-form-field>
+            <input matInput placeholder="Email">
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td colSpan="2">
+          <mat-form-field>
+            <input matInput placeholder="Confirmer l'email">
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <app-password-field placeholder="Password"></app-password-field>
+        </td>
+        <td>
+            <app-password-field placeholder="Confirm Password"></app-password-field>
+        </td>
+      </tr>
+    </table>
+    <p><button mat-raised-button class="max-width">Register</button></p>
+    <p>Vous avez deja un compte?</p>
+    <p><button mat-button (click)="switchPage.emit(true)">Connectez-vous</button></p>
+</mat-card-content>
