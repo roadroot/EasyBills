@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "main-nucleus-309421": {
+      "hosting": {
+        "EasyBills": [
+          "main-nucleus-309421"
+        ]
+      }
+    }
+  }
+}
