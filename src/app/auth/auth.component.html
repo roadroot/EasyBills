@@ -1,10 +1,12 @@
-<div class="max-height center">
-    <mat-card class="grid mat-elevation-z8">
-      <ng-template [ngIf]=index>
-        <app-login-form #login class="stacked" [@fade]="index?'close':'open'" (switchPage)="index = $event"></app-login-form>
-      </ng-template>
-      <ng-template [ngIf]=!index>
-        <app-register #register class="stacked" [@fade]="index?'open':'close'" (switchPage)="index = $event"></app-register>
-      </ng-template>
+<div class="max-height center grid">
+  <ng-template class="center" [ngIf]=index>
+    <mat-card class="stacked center mat-elevation-z8" [@fade]>
+      <app-login-form #login (switchPage)="index = $event"></app-login-form>
     </mat-card>
+  </ng-template>
+  <ng-template [ngIf]=!index>
+    <mat-card class="stacked center mat-elevation-z8" [@fade]>
+      <app-register #register (switchPage)="index = $event"></app-register>
+    </mat-card>
+  </ng-template>
 </div>

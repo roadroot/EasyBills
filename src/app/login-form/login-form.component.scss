@@ -16,10 +16,15 @@ mat-card-title {
 }
 
 button[mat-raised-button] {
+  width: 100%;
   background-color: $primary;
   color: $text;
 }
 
 button[mat-button] {
   color: $primary;
+}
+
+mat-form-field {
+  width: 29.5em;
 }

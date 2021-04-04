@@ -1,14 +1,11 @@
 import { trigger, state, style, transition, animate } from '@angular/animations';
-export let fade = trigger('fade', [
-  state('open', style({ opacity: 1 })),
-  state('close', style({ opacity: 0 })),
-  transition(':enter, :leave', [
-    animate(4000)
-  ]),
-  transition('open, close', [
-    animate(4000)
-  ]),
-  transition('close, open', [
-    animate(4000)
-  ])
-]);
+export const fade =
+  trigger('fade', [
+    transition(':leave', [
+      animate(200, style({ opacity: 0, transform: 'translateY(-100%)' })),
+    ]),
+    transition(':enter', [
+      animate(0, style({ opacity: 0, transform: 'translateY(0%)' })),
+      animate(300, style({ opacity: 1, transform: 'translateY(0%)' })),
+    ])
+  ]);
