@@ -51,6 +51,8 @@ import { RouterModule } from '@angular/router';
     MatGridListModule,
     MatNativeDateModule,
     RouterModule.forRoot([
+      {path:'authenticate', component: AuthComponent},
+      {path:'statistics', component: StatisticsComponent}
     ])
   ],
   providers: [

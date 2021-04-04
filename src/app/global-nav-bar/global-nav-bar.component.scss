@@ -1,0 +1,11 @@
+@import '../variables';
+
+a {
+    text-decoration: none;
+    color: $text;
+}
+
+mat-toolbar {
+    background-color: $primary;
+    color: $text;
+}

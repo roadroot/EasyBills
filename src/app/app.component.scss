@@ -1,3 +1,5 @@
+@import '_variables.scss';
+
 .all_content {
   height: 100%;
   display: flex;
@@ -10,4 +12,5 @@
   flex-direction: column;
   background-image: url(/assets/background.jpg);
   background-size: cover;
+  justify-content: center;
 }
