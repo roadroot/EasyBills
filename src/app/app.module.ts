@@ -1,3 +1,4 @@
+import { StatisticsComponent } from './statistics/statistics.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -22,6 +23,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatNativeDateModule } from '@angular/material/core';
 import { PasswordFieldComponent } from './comonents/password-field/password-field.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { PasswordFieldComponent } from './comonents/password-field/password-fiel
     FormsModule,
     MatDatepickerModule,
     MatGridListModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    RouterModule.forRoot([
+    ])
   ],
   providers: [
   ],
