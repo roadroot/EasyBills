@@ -1,3 +1,4 @@
+import { environment } from './../environments/environment';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -25,6 +26,11 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { PasswordFieldComponent } from './comonents/password-field/password-field.component';
 import { RouterModule } from '@angular/router';
 import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 @NgModule({
   declarations: [
@@ -57,6 +63,10 @@ import { MatTableModule } from '@angular/material/table';
       {path:'statistics', component: StatisticsComponent}
     ]),
     MatTableModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
+    MatPaginatorModule
   ],
   providers: [
   ],

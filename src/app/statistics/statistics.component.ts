@@ -1,20 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { AngularFirestore, QuerySnapshot } from '@angular/fire/firestore';
+import { MatTableDataSource } from '@angular/material/table';
 
-const ELEMENT_DATA: Commune[] = [{name: 'a', nam: 'b'}, {name: 'c', nam: 'd'}];
 @Component({
   templateUrl: './statistics.component.html',
   styleUrls: ['./statistics.component.scss']
 })
-export class StatisticsComponent implements OnInit {
-
-  dataSource = ELEMENT_DATA;
-  displayedColumns = ['name', 'nam'];
-  constructor() { }
-
-  ngOnInit(): void {
+export class StatisticsComponent {
+  data: any[];
+  showed_cols: string[] = [];
+  constructor(
+    private firestore: AngularFirestore,
+  ) {
+    this.firestore.collection("Communes").valueChanges().subscribe(data => {
+      this.data = data;
+      this.showed_cols = Object.keys(data[0]);
+      console.log(this.showed_cols);
+    });
   }
-}
-export interface Commune {
-  name: string;
-  nam : string;
 }
