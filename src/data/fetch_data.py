@@ -29,7 +29,7 @@ def dic_from(path):
   return data
 
 pat = 'communal_2019.xlsx'
-dpath = 'db.sqlite3'
+dpath = '../assets/db.sqlite3'
 """ download(pat) """
 dt = dic_from(pat)
 dt = database.DatasetUtils.preprocess(dt)

@@ -24,6 +24,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatNativeDateModule } from '@angular/material/core';
 import { PasswordFieldComponent } from './comonents/password-field/password-field.component';
 import { RouterModule } from '@angular/router';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -33,10 +34,11 @@ import { RouterModule } from '@angular/router';
     LoginFormComponent,
     AuthComponent,
     RegisterComponent,
-    PasswordFieldComponent
+    PasswordFieldComponent,
+    StatisticsComponent
   ],
   imports: [
-  HttpClientModule,
+    HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
     MatSliderModule,
@@ -53,7 +55,8 @@ import { RouterModule } from '@angular/router';
     RouterModule.forRoot([
       {path:'authenticate', component: AuthComponent},
       {path:'statistics', component: StatisticsComponent}
-    ])
+    ]),
+    MatTableModule,
   ],
   providers: [
   ],
