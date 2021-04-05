@@ -1,0 +1,18 @@
+
+let xlsx = require('node-xlsx')
+
+file  = xlsx.parse('communal_2019.xlsx');
+let column_names = 0;
+while(file[0].data[column_names][0] != "Code commune") {
+    column_names++;
+}
+
+let data_start = column_names+1;
+while(file[0].data[data_start].length == 0) {
+    data_start++;
+}
+
+let data_end = data_start;
+while(file[0].data[++data_end].length == file[0].data[data_start].length);
+
+console.log(file[0].data[data_end]);

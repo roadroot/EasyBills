@@ -47,3 +47,4 @@ Thumbs.db
 .vscode/
 
 communal_2019.xlsx
+src/assets/db.sqlite3
