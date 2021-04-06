@@ -1,0 +1,20 @@
+<div class="vertical-center">
+    <ng-template [ngIf]="connected">
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>account_circle</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="router.navigateByUrl('user')">
+                <mat-icon>manage_accounts</mat-icon>
+                <span>Profile</span>
+            </button>
+            <button mat-menu-item (click)="auth.signOut(); router.navigateByUrl('authenticate');">
+                <mat-icon>logout</mat-icon>
+                <span>Déconnection</span>
+            </button>
+        </mat-menu>
+    </ng-template>
+    <ng-template [ngIf]="!connected">
+        <button mat-button (click)="router.navigateByUrl('authenticate')">Authentification</button>
+    </ng-template>
+</div>
