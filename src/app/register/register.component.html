@@ -4,12 +4,12 @@
       <tr>
         <td>
           <mat-form-field>
-            <input [(ngModel)]="familyName" matInput placeholder="Nom">
+            <input [formControl]="familyName" matInput placeholder="Nom" required>
           </mat-form-field>
         </td>
         <td>
           <mat-form-field >
-            <input [(ngModel)]="name" matInput placeholder="Prenom">
+            <input [formControl]="name" matInput placeholder="Prenom" required>
           </mat-form-field>
         </td>
       </tr>
@@ -17,7 +17,7 @@
         <td colSpan="2">
           <mat-form-field>
             <mat-label>Choose a date</mat-label>
-            <input [(ngModel)]="birthDate" matInput [matDatepicker]="picker">
+            <input [formControl]="birthDate" matInput [matDatepicker]="picker" required>
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
@@ -26,23 +26,25 @@
       <tr>
         <td colSpan="2">
           <mat-form-field>
-            <input [(ngModel)]="email" matInput placeholder="Email">
+            <input matInput [formControl]="email" placeholder="Email" required>
+            <mat-error *ngIf="email.invalid">{{getError(email)}}</mat-error>
           </mat-form-field>
         </td>
       </tr>
       <tr>
         <td colSpan="2">
           <mat-form-field>
-            <input [(ngModel)]="confirmEmail" matInput placeholder="Confirmer l'email">
+            <input [formControl]="confirmEmail" matInput placeholder="Confirmer l'email" required>
+            <mat-error *ngIf="confirmEmail.invalid">{{getError(confirmEmail)}}</mat-error>
           </mat-form-field>
         </td>
       </tr>
       <tr>
         <td>
-          <app-password-field [password]="password" (onChange)="password=$event" placeholder="Password"></app-password-field>
+          <app-password-field [formControl]="password" placeholder="Password"></app-password-field>
         </td>
         <td>
-            <app-password-field [password]="confirmPassword" (onChange)="confirmPassword=$event" placeholder="Confirm Password"></app-password-field>
+            <app-password-field [formControl]="confirmPassword" placeholder="Confirm Password"></app-password-field>
         </td>
       </tr>
     </table>

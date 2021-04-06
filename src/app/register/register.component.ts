@@ -1,5 +1,7 @@
+import { Utils } from './../utils';
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -8,31 +10,36 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class RegisterComponent implements OnInit {
   @Output() switchPage = new EventEmitter<boolean>();
-  familyName: string;
-  name: string;
-  email: string;
-  confirmEmail: string;
-  password: string;
-  birthDate: Date;
-  confirmPassword: string;
+  familyName = new FormControl('', [Validators.required]);
+  name = new FormControl('', [Validators.required]);
+  email = new FormControl('', [Validators.required, Validators.email]);
+  confirmEmail = new FormControl('', [Validators.required, Validators.email]);
+  password = new FormControl('', [Validators.minLength(6)]);
+  confirmPassword = new FormControl('', [Validators.minLength(6)]);
+  birthDate = new FormControl('', [Validators.required]);
   constructor(private auth: AngularFireAuth) { }
+  getError = Utils.getError;
 
   ngOnInit(): void {
   }
 
   async onRegisterClicked() {
-    console.log(this.familyName);
-    console.log(this.name);
-    console.log(this.birthDate);
-    console.log(this.email);
-    console.log(this.confirmEmail);
-    console.log(this.password);
-    console.log(this.confirmPassword);
+    if(this.familyName.invalid ||
+      this.name.invalid ||
+      this.email.invalid ||
+      this.confirmEmail.invalid ||
+      this.password.invalid ||
+      this.confirmPassword.invalid ||
+      this.birthDate.invalid) {
+        alert('Please fill the form and correct errors before you continue');
+        return;
+    }
+
     try {
-      await this.auth.createUserWithEmailAndPassword(this.email, this.password);
+      await this.auth.createUserWithEmailAndPassword(this.email.value, this.password.value);
     } catch (error) {
-      console.log(error);
+      const user = await this.auth.user.toPromise();
+      alert(error.message);
     }
   }
-
 }

@@ -1,3 +1,5 @@
+import { Utils } from './../../utils';
+import { FormControl, MinLengthValidator } from '@angular/forms';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
@@ -7,9 +9,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class PasswordFieldComponent {
   show = false;
-  @Output() onChange: EventEmitter<string> = new EventEmitter<string>();
   @Input() placeholder = '';
-  @Input() password = '';
+  @Input() formControl: FormControl;
+  getError = Utils.getError;
 
   constructor() { }
 }
