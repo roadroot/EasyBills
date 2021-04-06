@@ -1,3 +1,5 @@
+import { Utils } from './../utils';
+import { FormControl, Validators } from '@angular/forms';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 
@@ -7,9 +9,10 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./login-form.component.scss'],
 })
 export class LoginFormComponent implements OnInit {
-  email = '';
-  password = '';
+  email = new FormControl('', [Validators.required, Validators.email]);
+  password = new FormControl('', [Validators.required, Validators.minLength(6)]);
   @Output() switchPage = new EventEmitter<boolean>();
+  getError = Utils.getError;
 
   constructor() { }
   @Input()

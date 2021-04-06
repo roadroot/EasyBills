@@ -10,7 +10,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class PasswordFieldComponent {
   show = false;
   @Input() placeholder = '';
-  @Input() formControl: FormControl;
+  @Input() control: FormControl;
   getError = Utils.getError;
 
   constructor() { }

@@ -1,4 +1,8 @@
-<div>
-      <p>{{user.uid}}</p>
-      <p>{{user.email}}</p>
-</div>
+<div *ngIf="user!=undefined; then profile else loading"></div>
+<ng-template #profile>
+      <p>{{user?.uid}}</p>
+      <p>{{user?.email}}</p>
+</ng-template>
+<ng-template #loading>
+      <p>loading</p>
+</ng-template>
