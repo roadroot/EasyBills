@@ -9,3 +9,9 @@ mat-toolbar {
     background-color: $primary;
     color: $text;
 }
+
+.trailing {
+    position: fixed;
+    right: 0;
+    margin: auto 1em;
+}

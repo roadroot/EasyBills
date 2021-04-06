@@ -38,7 +38,6 @@ export class RegisterComponent implements OnInit {
     try {
       await this.auth.createUserWithEmailAndPassword(this.email.value, this.password.value);
     } catch (error) {
-      const user = await this.auth.user.toPromise();
       alert(error.message);
     }
   }

@@ -15,6 +15,7 @@ export class StatisticsComponent {
     this.firestore.collection("Communes").valueChanges().subscribe(data => {
       this.data = data;
       this.showed_cols = Object.keys(data[0]);
+      console.log(this.data.length);
     });
   }
 }

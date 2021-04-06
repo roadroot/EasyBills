@@ -31,6 +31,10 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AccountComponent } from './account/account.component';
+import { ConnectedComponent } from './comonents/connected/connected.component';
+import { MatMenuModule } from '@angular/material/menu';
+
 
 @NgModule({
   declarations: [
@@ -41,7 +45,9 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     AuthComponent,
     RegisterComponent,
     PasswordFieldComponent,
-    StatisticsComponent
+    StatisticsComponent,
+    AccountComponent,
+    ConnectedComponent
   ],
   imports: [
     HttpClientModule,
@@ -59,15 +65,17 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     MatGridListModule,
     MatNativeDateModule,
     RouterModule.forRoot([
-      {path:'authenticate', component: AuthComponent},
-      {path:'statistics', component: StatisticsComponent}
+      { path: 'authenticate', component: AuthComponent },
+      { path: 'statistics', component: StatisticsComponent },
+      { path: 'user', component: AccountComponent }
     ]),
     MatTableModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
     MatPaginatorModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatMenuModule
   ],
   providers: [
   ],
