@@ -1,0 +1,5 @@
+npm install -g @angular/cli
+npm install --save-dev @angular-devkit/build-angular
+npm install firebase-admin
+npm install firebase-functions
+npm install node-xlsx
