@@ -8,7 +8,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./connected.component.scss']
 })
 export class ConnectedComponent implements OnInit {
-  connected = false;
   user: any;
   constructor(public auth: AngularFireAuth, public router: Router,
   ) { }
@@ -16,9 +15,6 @@ export class ConnectedComponent implements OnInit {
   ngOnInit(): void {
     this.auth.user.subscribe((user) => {
       this.user = user;
-      if (user != null && user != undefined) {
-        this.connected = true;
-      }
     });
   }
 

@@ -1,3 +1,4 @@
+import { AngularFirestore } from '@angular/fire/firestore';
 import { Utils } from './../utils';
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -18,7 +19,7 @@ export class RegisterComponent implements OnInit {
   password = new FormControl('', [Validators.minLength(6)]);
   confirmPassword = new FormControl('', [Validators.minLength(6)]);
   birthDate = new FormControl('', [Validators.required]);
-  constructor(private auth: AngularFireAuth, private router: Router) { }
+  constructor(private auth: AngularFireAuth, private router: Router, private firestore: AngularFirestore) { }
   getError = Utils.getError;
 
   ngOnInit(): void {
@@ -38,7 +39,19 @@ export class RegisterComponent implements OnInit {
 
     try {
       await this.auth.createUserWithEmailAndPassword(this.email.value, this.password.value);
-      this.router.navigateByUrl('user');
+      this.auth.user.subscribe(async (user) => {
+        await user.updateProfile({
+          displayName: this.name.value + ' ' + this.familyName.value
+        });
+        this.firestore.collection('Users').doc(user.uid).set({
+          'name': this.name.value,
+          'lastname': this.familyName.value,
+          'email': this.email.value,
+          'birthDate': this.birthDate.value,
+        })
+
+        this.router.navigateByUrl('user');
+      });
     } catch (error) {
       alert(error.message);
     }
