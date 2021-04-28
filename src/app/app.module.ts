@@ -34,6 +34,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AccountComponent } from './account/account.component';
 import { ConnectedComponent } from './comonents/connected/connected.component';
 import { MatMenuModule } from '@angular/material/menu';
+import { WelcomeComponent } from './Welcome/Welcome.component';
 
 
 @NgModule({
@@ -47,8 +48,9 @@ import { MatMenuModule } from '@angular/material/menu';
     PasswordFieldComponent,
     StatisticsComponent,
     AccountComponent,
-    ConnectedComponent
-  ],
+    ConnectedComponent,
+      WelcomeComponent
+   ],
   imports: [
     HttpClientModule,
     BrowserModule,
@@ -65,6 +67,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatGridListModule,
     MatNativeDateModule,
     RouterModule.forRoot([
+      { path: '', component: WelcomeComponent },
       { path: 'authenticate', component: AuthComponent },
       { path: 'statistics', component: StatisticsComponent },
       { path: 'user', component: AccountComponent }

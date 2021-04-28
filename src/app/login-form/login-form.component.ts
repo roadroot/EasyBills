@@ -1,6 +1,8 @@
 import { Utils } from './../utils';
 import { FormControl, Validators } from '@angular/forms';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,10 +16,15 @@ export class LoginFormComponent implements OnInit {
   @Output() switchPage = new EventEmitter<boolean>();
   getError = Utils.getError;
 
-  constructor() { }
+  constructor(private auth: AngularFireAuth, private router: Router) { }
   @Input()
-  signInClicked(): void {
-    console.log(this.email + ' ' + this.password);
+  async signInClicked(): Promise<void> {
+    try {
+      await this.auth.signInWithEmailAndPassword(this.email.value, this.password.value);
+      this.router.navigateByUrl('user');
+    } catch (error) {
+      alert(error.message);
+    }
   }
 
   ngOnInit(): void {

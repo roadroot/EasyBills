@@ -2,6 +2,7 @@ import { Utils } from './../utils';
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -17,7 +18,7 @@ export class RegisterComponent implements OnInit {
   password = new FormControl('', [Validators.minLength(6)]);
   confirmPassword = new FormControl('', [Validators.minLength(6)]);
   birthDate = new FormControl('', [Validators.required]);
-  constructor(private auth: AngularFireAuth) { }
+  constructor(private auth: AngularFireAuth, private router: Router) { }
   getError = Utils.getError;
 
   ngOnInit(): void {
@@ -37,6 +38,7 @@ export class RegisterComponent implements OnInit {
 
     try {
       await this.auth.createUserWithEmailAndPassword(this.email.value, this.password.value);
+      this.router.navigateByUrl('user');
     } catch (error) {
       alert(error.message);
     }
